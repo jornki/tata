@@ -2,12 +2,14 @@
 TATA is a simple ruby script to automate the process of assembling templates. What it does it basically taking a bunch of html template files and sticking them in one master html file properly wrapped with script tags.
 
 ## Usage ##
-- Open the tata.rb file and edit the two variables at the top where it says to do so
-- In your html template files add the a comment on the first line `<!-- id=myTemplateId -->`
+1. Open the tata.rb file and edit the two variables at the top where it says to do so
+
+2. In your html template files add a comment on the first line `<!-- id=myTemplateId -->`
 - You'll need to create your own name for that id of course (replace "myTemplateId")
 - This id will be inserted in the generated script tag in the output file
 - If this id isn't present in the html file, above your code, the file will no be considered a to be a valid template
-- Run the script using __ruby tata.rb__ with the optional parameters (see below)
+
+3. Run the script using __ruby tata.rb__ with the optional parameters (see below)
 
 ### Parameters ###
 - __"-w"__ : Will watch the templates, compiling them whenever they change
