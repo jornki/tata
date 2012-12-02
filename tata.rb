@@ -4,7 +4,7 @@
 # Takes a bunch of HTML files and assembles them into the
 # html file of your choice. For more information see the README file
 
-# SETTINGS [Edit thesem and yes they are relative]
+# SETTINGS [Edit these...and yes they are using relative paths]
 $template_dir = "build/templates/"
 $html_target_file = "build/index.html"
 # END SETTING
