@@ -5,8 +5,8 @@
 # html file of your choice. For more information see the README file
 
 # SETTINGS [Edit these...and yes they are using relative paths]
-$template_dir = "build/templates/"
-$html_target_file = "build/index.html"
+$template_dir = "directory/templates/"
+$html_target_file = "directory/index.html"
 # END SETTING
 
 def tata(watch, compressed=false)
