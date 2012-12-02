@@ -6,8 +6,8 @@ TATA is a simple ruby script to automate the process of assembling templates. Wh
 - Run the script using _ruby tata.rb_ with the optional parameters (see below)
 
 ### Parameters ###
-- "-w" : Will watch the templates, compiling them whenever they change
-- "-compressed" : Gives you compressed output (no newlines)
+- *"-w"* : Will watch the templates, compiling them whenever they change
+- *"-compressed"* : Gives you compressed output (no newlines)
 
 This will watch the template files and combine them into your html file using compressed output
 `ruby tata.rb -w -compressed`
