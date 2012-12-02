@@ -7,11 +7,11 @@ TATA is a simple ruby script to automate the process of assembling templates. Wh
 - You'll need to create your own name for that id of course (replace "myTemplateId")
 - This id will be inserted in the generated script tag in the output file
 - If this id isn't present in the html file, above your code, the file will no be considered a to be a valid template
-- Run the script using _ruby tata.rb_ with the optional parameters (see below)
+- Run the script using __ruby tata.rb__ with the optional parameters (see below)
 
 ### Parameters ###
-- _"-w"_ : Will watch the templates, compiling them whenever they change
-- _"-compressed"_ : Gives you compressed output (no newlines)
+- __"-w"__ : Will watch the templates, compiling them whenever they change
+- __"-compressed"__ : Gives you compressed output (no newlines)
 
 This will watch the template files and combine them into your html file using compressed output
 `ruby tata.rb -w -compressed`
