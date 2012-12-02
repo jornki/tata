@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--<html manifest="cache.appcache">-->
+<html>
+	<head>
+		<title>[Application title]</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		
+		<!-- Stylesheets (do not add any additional files!) -->
+		<link rel="stylesheet" href="css/screen.css" type="text/css" media="all">
+		<!-- JAVASCRIPTS -->
+		
+		<!-- Required (do not remove) PS: Contains external libraries -->
+		<script type="text/javascript" src="../../framework/AppController.min.js" defer></script>
+		
+		<!-- Main application script [Required] -->
+		<script type="text/javascript" src="javascripts/app.min.js" defer></script>
+	</head>
+	<body>
+		<!-- Application body 
+		This basic markup is required
+		-->
+		<div id="wrapper">
+			<div id="appViewport">
+				<div id="headerBar"></div>
+				<div id="moduleHolder"></div>
+				<div id="navigationBar">
+					<div id="button-huskeliste" class="modulebutton"><span class="badge"></span>Handleliste</div>
+					<div id="button-minside" class="modulebutton">Trumf</div>
+					<div id="button-finn-butikk" class="modulebutton">Finn butikk</div>
+					<div id="button-errorreport" class="modulebutton">Feilmelding</div>
+				</div>
+			</div>
+		</div>
+	
+<!-- TEMPLATES -->
+<script id="loginTpl" type="text/template">
+<header><button type="button" class="login-action-button" id="login-abort-button">Avbryt</button><h1>Logg inn nemlig</h1></header><div class="login-content"><p>Ved å logge inn her får du tilgang til dine personlige kjøpsanbefalinger, Trumfsaldo og -kontoinformasjon.</p><p>Skriv inn din epostadresse eller ditt Trumf kundenummer og passord.</p><div class="login-status">Du er nå logget inn!</div><div class="username-holder"><input class="username" type="email" placeholder="Kundenummer eller e-post" /><span class="scan-icon"></span></div><input class="password" type="password" placeholder="Passord" /><button id="login-submit-button" class="login-action-button" type="button">Logg inn</button><p>Du finner ditt kundenummer på baksiden av Trumf-kortet ditt eller i nyhetsbreven våre.</p></div><div class="login-loader"></div>
+</script>
+<!-- TEMPLATES END -->
+</body>
+</html>
