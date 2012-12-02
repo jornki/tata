@@ -4,9 +4,9 @@
 # Takes a bunch of HTML files and assembles them into the
 # html file of your choice. For more information see the README file
 
-# SETTINGS [EDITABLE]
+# SETTINGS [Edit thesem and yes they are relative]
 $template_dir = "build/templates/"
-$index_file = "build/index.html"
+$html_target_file = "build/index.html"
 # END SETTING
 
 def tata(watch, compressed=false)
@@ -15,9 +15,12 @@ def tata(watch, compressed=false)
   if not File.directory? $template_dir
     abort($template_dir + " is not a valid directory")
   end
-  if not File.exists? $index_file or not File.extname($index_file) == '.html'
-    abort($index_file + ' is not a valid html file');
+  if not File.exists? $html_target_file or not File.extname($html_target_file) == '.html'
+    abort($html_target_file + ' is not a valid html file');
   end
+  
+  # make sure we have a valid directory path
+  $template_dir += "/" if $template_dir[-1,1] != '/'
   
   # id pattern used for detecting a template file
   pattern = /<!-- id=(.+) -->/
@@ -97,7 +100,7 @@ def tata(watch, compressed=false)
   templates += "<!-- TEMPLATES END -->\n"
 
   # Get the content of the index file
-  html = File.readlines($index_file).to_s
+  html = File.readlines($html_target_file).to_s
   # Remove any previous templates
   html.slice!(/<!-- TEMPLATES -->(.|\n|\r)+<!-- TEMPLATES END -->/)
   # Just to be sure that old template code is gone
@@ -119,12 +122,12 @@ def tata(watch, compressed=false)
   end
   
   # write the changes to the html file
-  f = File.open($index_file, 'w')
+  f = File.open($html_target_file, 'w')
   f.write(html)
   f.close
   
   # Tell the user what just happened
-  puts "The following templates where added to " + $index_file
+  puts "The following templates where added to " + $html_target_file
   puts tplFiles
   puts "\n"
   
@@ -141,12 +144,13 @@ def init
   watch = false
   compress = false
   
-  if ARGV[0] == '-w'
-    watch = true
-  end
-  
-  if ARGV[1] == '-compressed'
-    compress = true
+  ARGV.each do |a|
+  	case a
+  	when '-w'
+  		watch = true
+  	when '-compressed'
+  		compress = true
+  	end
   end
   
   tata(watch, compress)
