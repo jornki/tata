@@ -54,9 +54,9 @@ def tata(watch, compressed=false)
           # Save the filenames for output
           tplFiles.push(file.path)
           # Grab the template id
-          id = line.scan(pattern).to_s
+          id = line.scan(pattern)[0]
           # Start to build the template
-          templateText += '<script id="' + id + '" type="text/template">' + "\n"
+          templateText += '<script id="' + id[0] + '" type="text/template">' + "\n"
           
           # Detect if file has changed
           if not $changed_files[file.path]
@@ -100,7 +100,9 @@ def tata(watch, compressed=false)
   templates += "<!-- TEMPLATES END -->\n"
 
   # Get the content of the index file
-  html = File.readlines($html_target_file).to_s
+  hf = File.open($html_target_file, 'rb')
+  html = hf.read
+  
   # Remove any previous templates
   html.slice!(/<!-- TEMPLATES -->(.|\n|\r)+<!-- TEMPLATES END -->/)
   # Just to be sure that old template code is gone
@@ -145,12 +147,12 @@ def init
   compress = false
   
   ARGV.each do |a|
-  	case a
-  	when '-w'
-  		watch = true
-  	when '-compressed'
-  		compress = true
-  	end
+    case a
+    when '-w'
+      watch = true
+    when '-compressed'
+      compress = true
+    end
   end
   
   tata(watch, compress)
