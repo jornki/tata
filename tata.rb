@@ -79,6 +79,8 @@ def tata(watch, compressed=false)
           end
         end # For each line end
       end
+      # close the file
+      file.close
       # wrap up the template
       templateText += "\n</script>\n"
       
@@ -92,7 +94,6 @@ def tata(watch, compressed=false)
         hasChanges = true
         puts "Removed " + file.path
       end
-      
     end # For each file end
   end # For each filename end
   
@@ -102,6 +103,7 @@ def tata(watch, compressed=false)
   # Get the content of the index file
   hf = File.open($html_target_file, 'rb')
   html = hf.read
+  hf.close
   
   # Remove any previous templates
   html.slice!(/<!-- TEMPLATES -->(.|\n|\r)+<!-- TEMPLATES END -->/)
