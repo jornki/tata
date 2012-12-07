@@ -38,6 +38,11 @@ def tata(watch, compressed=false)
   # Does any of the files have changes
   hasChanges = false
   
+  # init
+  templateText = ""
+  tplDetected = false
+  id = ""
+  
   # For each filename
   files.each do |f|
     # For each file
